@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>incident</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>OpsRamp Incident BR</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	//Map the SN priority with OpsRamp priority
+	var opsRampPriority = current.priority;
+	if(current.getValue('priority') == '1') {//Critical in SN
+		opsRampPriority = 'Urgent';//Critical in OpsRamp
+	} else if(current.getValue('priority') == '2') {//High in SN
+		opsRampPriority = 'High';//High in OpsRamp
+	} else if(current.getValue('priority') == '3') {//Medium in SN
+		opsRampPriority = 'Normal';//Normal in OpsRamp
+	} else if(current.getValue('priority') == '4') {//Low in SN
+		opsRampPriority = 'Low';//Low in OpsRamp
+	} else if(current.getValue('priority') == '5') {//Low in SN
+		opsRampPriority = 'Very Low';//Low in OpsRamp
+	}
+	//gs.addErrorMessage('OpsRamp Priority: ' + opsRampPriority);
+
+	//Map the SN status with OpsRamp status
+	var opsRampStatus = current.state;
+	if(current.getValue('state') == '1') {//New in SN
+	opsRampStatus = 'New';//New in OpsRamp
+	} else if(current.getValue('state') == '2') {//In Progress in SN
+	opsRampStatus = 'Open';//Open in OpsRamp
+	} else if(current.getValue('state') == '3') {//On Hold in SN
+	opsRampStatus = 'On Hold';//On Hold in OpsRamp
+	} else if(current.getValue('state') == '6') {//Resolved in SN
+	opsRampStatus = 'Resolved';//Closed in OpsRamp
+	}else if(current.getValue('state') == '7') {//Closed in SN
+	opsRampStatus = 'Closed';//Closed in OpsRamp
+	}
+
+	//gs.addErrorMessage('OpsRamp Status: ' + opsRampStatus);
+
+	//Update incident properties
+	//gs.addErrorMessage('OpsRamp incident ID: ' + current.x_opra_opsramp_int_opsramp_incident_id);
+	//gs.addErrorMessage('OpsRamp client ID: ' + current.company.x_opra_opsramp_int_opsramp_client_id);
+	//gs.addErrorMessage('SNOW incident number: ' + current.number);
+
+	//If it is Partner level integration, SNOW company is mapped to OpsRamp client
+	//OpsRamp client id should be in available in SNOW company - Create custom field in Company 
+	//and add the mapped OpsRamp client id here
+	var opsRampClientId = current.company.x_opra_opsramp_int_opsramp_client_id;
+
+	//If it is client level integration, hard code the OpsRamp client id here
+	//var opsRampClientId = 'client_392';
+	
+	if(!gs.nil(current.x_opra_opsramp_int_opsramp_incident_id)) {//Update incident
+		//gs.addErrorMessage("Update incident ...");
+		var uRestMsg = new sn_ws.RESTMessageV2('OpsRamp Incident REST', 'Update Incident');
+		//uRestMsg.setHttpTimeout(6000);
+
+		uRestMsg.setStringParameter('tenantId',opsRampClientId);
+		uRestMsg.setStringParameter('incidentId',current.x_opra_opsramp_int_opsramp_incident_id);
+		uRestMsg.setStringParameter('priorityToken',opsRampPriority);
+		uRestMsg.setStringParameter('statusToken',opsRampStatus);
+
+		//If work notes added? - this block not working in Aysnc BR
+		//gs.addErrorMessage("Work notes changed? : " + current.work_notes.changes());
+		/*
+		if(current.work_notes.getJournalEntry(1) && current.work_notes.changes()){	
+			var content = current.work_notes.getJournalEntry(1);
+
+			content = content.replace(/(?:\r\n|\r|\n)/g, '\\n');
+			content = content.replace(/(?:\t)/g, '\\t');
+			//gs.addErrorMessage("Work notes: " + content);
+			uRestMsg.setStringParameter('responseToken',content);
+		} */
+
+		//Execute script
+		var uRestMsgResponse = uRestMsg.executeAsync();
+		//var opsRampUpdateIncJSON = new global.JSON().decode(uRestMsgResponse.getBody());
+		//gs.debug("Status Code: " + uRestMsgResponse.getStatusCode());
+		//gs.addErrorMessage("Status Code: " + uRestMsgResponse.getStatusCode());
+		//gs.addErrorMessage("Error Msg: " + uRestMsgResponse.getErrorMessage());	
+
+	} else if(current.getValue('state') == '1') { //New incident
+		//gs.addErrorMessage('New incident creation...');
+		var cRestMsg = new sn_ws.RESTMessageV2('OpsRamp Incident REST', 'Create Incident');
+		//cRestMsg.setHttpTimeout(6000);
+
+		cRestMsg.setStringParameter('tenantId',opsRampClientId);
+
+		//Set SN incident short description as OpsRamp subject
+		subject = current.short_description;
+		subject = subject.replace(/(?:\r\n|\r|\n)/g, '\\n');
+		subject = subject.replace(/(?:\t)/g, '\\t');
+		cRestMsg.setStringParameter('subjectToken',subject);
+
+		//Set SN incident description as OpsRamp description
+		description = current.description;
+		description = description.replace(/(?:\r\n|\r|\n)/g, '\\n');
+		description = description.replace(/(?:\t)/g, '\\t');
+		cRestMsg.setStringParameter('descriptionToken',description);
+
+		cRestMsg.setStringParameter('extTicketIdToken',current.number);
+		cRestMsg.setStringParameter('priorityToken',opsRampPriority);
+
+		var cRestMsgResponse = cRestMsg.executeAsync();
+
+		//Read OpsRamp incidentId from response and update to SN incident.
+		//gs.addErrorMessage('responseBody: ' + cRestMsgResponse.getBody());
+		var opsRampCreateIncJSON = new global.JSON().decode(cRestMsgResponse.getBody());
+		//gs.addErrorMessage('responseBodyJSON: ' + opsRampCreateIncJSON);
+		//gs.addErrorMessage('OpsRamp Inc ID: ' + opsRampCreateIncJSON.id);
+		
+		var inc = new GlideRecordSecure('incident');
+		if(inc.get(current.sys_id)) {
+			inc.x_opra_opsramp_int_opsramp_incident_id=opsRampCreateIncJSON.id;
+			inc.update();
+		}
+	} else {
+		gs.addErrorMessage('Neither incident create nor update operation performed');
+	}
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-19 08:24:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c91368f0db11eb009c019806b99619ce</sys_id>
+        <sys_mod_count>54</sys_mod_count>
+        <sys_name>OpsRamp Incident BR</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>sys_script_c91368f0db11eb009c019806b99619ce</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-25 06:00:36</sys_updated_on>
+        <template/>
+        <when>async_always</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=c91368f0db11eb009c019806b99619ce"/>
+</record_update>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>0</auth_code_lifespan>
+        <auth_url/>
+        <certificate_url/>
+        <client_id>PRHHy5Ad5mYSD4FHeDAtXJcur9HaBrJq</client_id>
+        <client_secret>$KW#mz8USOTFFN8Ut8yBwfenVGrI/Op9Fvrnq2353ud5IsV2q8bHMbAZjNStTTjJ5uV5nU6N6T8K6hlHnr6vGKSnDCEAc+9gAY5ELx/tClBDJeBlgtipa1MwHU6vj/AZCcGu6Nc8Xnd6csZHs9Edaw+sSZMEClVvkRlU9ppa0nu8AJr6e3UeZJm2qaPrB4OoQ4kuCJP0vF8Jpo0OFSnp2J6dJ0qrg85155b/od4S0ZDWomORbyiivHSMeBPVcsN</client_secret>
+        <client_uuid>4e3f5d62dba1e7409c019806b996199d</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments>OpsRamp OAUTH2 client details required for SNOW to call OpsRamp Incident APIs</comments>
+        <default_grant_type>client_credentials</default_grant_type>
+        <id_token_lifespan>0</id_token_lifespan>
+        <logo_url/>
+        <message_signature_lifespan>0</message_signature_lifespan>
+        <name>OpsRamp OAuth Provider</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url>https://ven02577.service-now.com/oauth_redirect.do</redirect_url>
+        <refresh_token_lifespan>7200</refresh_token_lifespan>
+        <refresh_token_url/>
+        <restricted_binding>false</restricted_binding>
+        <revoke_token_url/>
+        <salt>0</salt>
+        <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-11-06 09:33:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ce3f5d62dba1e7409c019806b996199d</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>OpsRamp OAuth Provider</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>oauth_entity_ce3f5d62dba1e7409c019806b996199d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-21 10:40:26</sys_updated_on>
+        <token_url>https://integration.api.try.opsramp.com/auth/oauth/token</token_url>
+        <type>oauth_provider</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+</record_update>

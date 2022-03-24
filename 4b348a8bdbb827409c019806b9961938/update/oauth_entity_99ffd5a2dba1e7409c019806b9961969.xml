@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>60</auth_code_lifespan>
+        <auth_url/>
+        <certificate_url/>
+        <client_id>59ffd5a27da1e740b06af86f91de7469</client_id>
+        <client_secret>﷞﷟﷒729bef5d1ba7a010da0fb8cc1d4bcbe0﷬﷔1﷬﷭207Rovhmf1DRYGQ8F1RT9Q==p-Cfz6ThNzMCTW1CNekO839obM_k-p29oww=﷮﷯</client_secret>
+        <client_uuid>19ffd5a2dba1e7409c019806b9961969</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments>SNOW OAUTH2 client details required for OpsRamp to call SNOW APIs</comments>
+        <default_grant_type>password</default_grant_type>
+        <id_token_lifespan>86400</id_token_lifespan>
+        <logo_url/>
+        <message_signature_lifespan>60</message_signature_lifespan>
+        <name>OpsRamp OAuth Client</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url/>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <refresh_token_url/>
+        <restricted_binding>false</restricted_binding>
+        <revoke_token_url/>
+        <salt/>
+        <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-11-06 09:36:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>99ffd5a2dba1e7409c019806b9961969</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>OpsRamp OAuth Client</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>oauth_entity_99ffd5a2dba1e7409c019806b9961969</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-21 10:41:27</sys_updated_on>
+        <token_url/>
+        <type>client</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+</record_update>

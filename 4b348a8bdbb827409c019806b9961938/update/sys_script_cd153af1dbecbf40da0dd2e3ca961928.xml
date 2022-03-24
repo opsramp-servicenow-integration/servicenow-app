@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>cmdb_ci</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>OpsRamp CI BR</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	//gs.addErrorMessage("ci table  :" + current.getTableName());
+
+	//gs.addErrorMessage('OpsRamp CI ID: ' + current.x_opra_opsramp_int_opsramp_resource_id);
+	//gs.addErrorMessage('OpsRamp client ID: ' + current.company.x_opra_opsramp_int_opsramp_client_id);
+	//gs.addErrorMessage('SNOW CI sys_id: ' + current.sys_id);
+	//gs.addErrorMessage('CI Updates: ' + current.sys_mod_count);
+
+	//If it is Partner level integration, SNOW company is mapped to OpsRamp client
+	//OpsRamp client id should be in available in SNOW company - Create custom field in Company 
+	//and add the mapped OpsRamp client id here
+	var opsRampClientId = current.company.x_opra_opsramp_int_opsramp_client_id;
+
+	//If it is client level integration, hard code the OpsRamp client id here
+	//var opsRampClientId = 'client_1341';
+
+	try {
+		var opsRampResourceType = 'Windows';
+		if(current.getTableName() == 'cmdb_ci') {//Device Type in SNOW
+			opsRampResourceType = 'POS Terminal';//Device Type in OpsRamp
+		} else if (current.getTableName() == 'cmdb_ci_aix_server') {
+			opsRampResourceType = 'AIX';
+		} else if (current.getTableName() == 'cmdb_ci_appl_cisco_call_man') {
+			opsRampResourceType = 'Cisco UCM Express';
+		} else if (current.getTableName() == 'cmdb_ci_appl_groundwork') {
+			opsRampResourceType = 'Work Station ';
+		} else if (current.getTableName() == 'cmdb_ci_app_server_websphere') {
+			opsRampResourceType = 'IBM STORWIZE';
+		} else if (current.getTableName() == 'cmdb_ci_cluster_vip') {
+			opsRampResourceType = 'Virtual IP';
+		} else if (current.getTableName() == 'cmdb_ci_desktop_software') {
+			opsRampResourceType = 'Desktop';
+		} else if (current.getTableName() == 'cmdb_ci_config_automation_server') {
+			opsRampResourceType = 'Management Controller';
+		} else if (current.getTableName() == 'cmdb_ci_docker_engine') {
+			opsRampResourceType = 'Docker';
+		} else if (current.getTableName() == 'cmdb_ci_endpoint_dctm_index') {
+			opsRampResourceType = 'Vistara AD Agent';
+		} else if (current.getTableName() == 'cmdb_ci_generator_power_eq') {
+			opsRampResourceType = 'Power';
+		} else if (current.getTableName() == 'cmdb_ci_endpoint_storf') {
+			opsRampResourceType = 'Xen Server';
+		} else if (current.getTableName() == 'cmdb_ci_kvm') {
+			opsRampResourceType = 'KVM';
+		} else if (current.getTableName() == 'cmdb_ci_kvm_network') {
+			opsRampResourceType = 'Network Device';
+		} else if (current.getTableName() == 'cmdb_ci_lb') {
+			opsRampResourceType = 'Load balancer';
+		} else if (current.getTableName() == 'cmdb_ci_lb_cisco_csm') {
+			opsRampResourceType = 'Cisco UCM';
+		} else if (current.getTableName() == 'cmdb_ci_linux_server') {
+			opsRampResourceType = 'Linux';
+		} else if (current.getTableName() == 'cmdb_ci_personal_printer') {
+			opsRampResourceType = 'Printer';
+		} else if (current.getTableName() == 'cmdb_ci_server') {
+			opsRampResourceType = 'Server';
+		} else if (current.getTableName() == 'cmdb_ci_storage_switch') {
+			opsRampResourceType = 'Switch';
+		} 
+	
+		var r;
+		var response;
+		var operation = current.operation();
+		if(!gs.nil(current.x_opra_opsramp_int_opsramp_resource_id)) { // Update CI
+			gs.addErrorMessage('CI Update...');
+			r = new sn_ws.RESTMessageV2('OpsRamp CI REST', 'Update CI');
+		
+			r.setStringParameter('dsnNameToken',current.dns_domain);
+			r.setStringParameter('hostNameToken',current.name);
+			r.setStringParameter('resourceTypeToken',opsRampResourceType);
+			r.setStringParameter('osToken',current.u_operating_system);
+			r.setStringParameter('serialNumberToken',current.serial_number);
+			r.setStringParameter('makeToken',current.u_make);
+			r.setStringParameter('modelToken',current.model_id.getDisplayValue());
+			r.setStringParameter('macAddressToken',current.mac_address);
+			r.setStringParameter('ipAddressToken',current.ip_address);
+			r.setStringParameter('extDeviceIdToken',current.sys_id);
+			r.setStringParameter('tenantId',opsRampClientId);
+			r.setStringParameter('resourceId',current.x_opra_opsramp_int_opsramp_resource_id);
+			
+			//Execute script
+			response = r.executeAsync();	
+			//gs.addErrorMessage("status code: " + response.getStatusCode());
+			//gs.addErrorMessage("Error Msg: " + response.getErrorMessage());
+			//var opsRampCIJSON = new JSON().decode(response.getBody());
+
+		} else { //if(current.sys_mod_count == 0) { //Only CIs newly created	
+			//gs.addErrorMessage('CI Create...');
+			r = new sn_ws.RESTMessageV2('OpsRamp CI REST', 'Create CI');
+		
+			r.setStringParameter('dsnNameToken',current.dns_domain);
+			r.setStringParameter('hostNameToken',current.name);
+			r.setStringParameter('resourceTypeToken',opsRampResourceType);
+			r.setStringParameter('osToken',current.u_operating_system);
+			r.setStringParameter('serialNumberToken',current.serial_number);
+			r.setStringParameter('makeToken',current.u_make);
+			r.setStringParameter('modelToken',current.model_id.getDisplayValue());
+			r.setStringParameter('macAddressToken',current.mac_address);
+			r.setStringParameter('ipAddressToken',current.ip_address);
+			r.setStringParameter('extDeviceIdToken',current.sys_id);
+			r.setStringParameter('tenantId',opsRampClientId);
+			
+			response = r.executeAsync();	
+			gs.addErrorMessage("status code: " + response.getStatusCode());
+			gs.addErrorMessage("Error Msg: " + response.getErrorMessage());
+
+			//Read OpsRamp CIId from response and update to SN CI.
+			//gs.addErrorMessage('responseBody: ' + response.getBody());
+			var opsRampCIJSON = new global.JSON().decode(response.getBody());
+			var ci = new GlideRecordSecure('cmdb_ci');
+			if(ci.get(current.sys_id)) {
+				ci.x_opra_opsramp_int_opsramp_resource_id = opsRampCIJSON.resourceUUID;
+				ci.update();
+			}
+		}
+	} catch (e) {
+		gs.addErrorMessage(e);
+	}
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-02 12:10:10</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cd153af1dbecbf40da0dd2e3ca961928</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>OpsRamp CI BR</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>sys_script_cd153af1dbecbf40da0dd2e3ca961928</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-07 11:37:35</sys_updated_on>
+        <template/>
+        <when>async_always</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=cd153af1dbecbf40da0dd2e3ca961928"/>
+</record_update>

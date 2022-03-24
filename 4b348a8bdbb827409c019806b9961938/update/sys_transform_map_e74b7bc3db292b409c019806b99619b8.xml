@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_map">
+    <sys_transform_map action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copy_empty_fields>false</copy_empty_fields>
+        <create_new_record_on_empty_coalesce_fields>false</create_new_record_on_empty_coalesce_fields>
+        <enforce_mandatory_fields>No</enforce_mandatory_fields>
+        <name>OpsRamp Incident Trans Map</name>
+        <order>1</order>
+        <run_business_rules>true</run_business_rules>
+        <run_script>true</run_script>
+        <script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+	//log.warn("[" + map.name + "] - Is Update?: " + isUpdate + " - status: " + source.status + ", impact: " + source.impact + ", urgency: " + source.urgency + ", Target state: " + target.state + ", Target impact: " + target.impact + ", Target urgency: " + target.urgency+ ", OpsRamp client Id: " + source.opsramp_client_id);
+	
+	//Map OpsRamp status with SNOW state
+	if(!source.status.nil()) {
+		if(source.status == 'New') {
+			target.state=1;
+		} else if(source.status == 'Open') {
+			target.state=2;
+		} else if(source.status == 'On Hold') {
+			target.state=3;
+		} else if(source.status == 'Pending') {
+			target.state=3;
+		} else if(source.status == 'Resolved') {
+			target.state=6;
+		} else if(source.status == 'Closed') {
+			target.state=7;
+		} else {
+			log.warn("[" + map.name + "] - Invalid status received: " + source.status);
+		}
+	}
+	
+	//Map Impact
+	if(!source.impact.nil()) {
+		if(source.impact == '1-High') {
+			target.impact = 1;
+		} else if(source.impact == '2-Medium') {
+			target.impact = 2;
+		} else if(source.impact == '3-Low') {
+			target.impact = 3;
+		} else {
+			log.warn("[" + map.name + "] - Invalid impact received: " + source.impact);
+		}
+	}
+	
+	//Map Urgency
+	if(!source.urgency.nil()) {
+		if(source.urgency == '1-High') {
+			target.urgency = 1;
+		} else if(source.urgency == '2-Medium') {
+			target.urgency = 2;
+		} else if(source.urgency == '3-Low') {
+			target.urgency = 3;
+		} else {
+			log.warn("[" + map.name + "] - Invalid urgency received: " + source.urgency);
+		}
+	}
+	
+	//Map company in case it is Partner level integration
+	if(!source.opsramp_client_id.nil()) {
+		var comp = new GlideRecordSecure('core_company');
+		comp.addQuery("x_opra_opsramp_int_opsramp_client_id", source.opsramp_client_id);
+		comp.query();
+		if(comp.next()) {
+			//log.warn("[" + map.name + "] - company sys Id mapped to client id " + source.opsramp_client_id + " is : " + comp.sys_id);
+			target.company = comp.sys_id;
+		}
+		//target.company = "86c1f3193790200044e0bfc8bcbe5d95"; //ACME Africa
+	}
+
+})(source, target, map, log, action==="update");]]></script>
+        <source_table>x_opra_opsramp_int_opsramp_incident</source_table>
+        <sys_class_name>sys_transform_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-11-08 10:11:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e74b7bc3db292b409c019806b99619b8</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>OpsRamp Incident Trans Map</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>sys_transform_map_e74b7bc3db292b409c019806b99619b8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-09 13:11:57</sys_updated_on>
+        <target_table>incident</target_table>
+    </sys_transform_map>
+</record_update>

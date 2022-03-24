@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_entry">
+    <sys_transform_entry action="INSERT_OR_UPDATE">
+        <choice_action>create</choice_action>
+        <coalesce>true</coalesce>
+        <coalesce_case_sensitive>false</coalesce_case_sensitive>
+        <coalesce_empty_fields>false</coalesce_empty_fields>
+        <date_format>yyyy-MM-dd HH:mm:ss</date_format>
+        <map display_value="OpsRamp CI Trans Map">af75ef1bdbc47340da0dd2e3ca96195a</map>
+        <reference_value_field/>
+        <source_field>opsramp_resource_id</source_field>
+        <source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+        <source_table>x_opra_opsramp_int_opsramp_ci</source_table>
+        <sys_class_name>sys_transform_entry</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-03-13 11:26:40</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7a6b7f5bdb087340da0dd2e3ca961922</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>opsramp_resource_id</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>sys_transform_entry_7a6b7f5bdb087340da0dd2e3ca961922</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-03-13 11:26:40</sys_updated_on>
+        <target_field>x_opra_opsramp_int_opsramp_resource_id</target_field>
+        <target_table>cmdb_ci</target_table>
+        <use_source_script>false</use_source_script>
+    </sys_transform_entry>
+</record_update>

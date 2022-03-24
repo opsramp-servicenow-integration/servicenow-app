@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message">
+    <sys_rest_message action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <authentication_type>oauth2</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <description>REST message configuration for OpsRamp portal API details.</description>
+        <name>OpsRamp CI REST</name>
+        <oauth2_profile display_value="OpsRamp OAuth  Provider default_profile">20bf5d62dba1e7409c019806b99619a3</oauth2_profile>
+        <protocol_name/>
+        <rest_endpoint>https://integration.api.try.opsramp.com</rest_endpoint>
+        <sys_class_name>sys_rest_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-19 08:11:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>311b5fdfdb847340da0dd2e3ca961986</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>OpsRamp CI REST</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>sys_rest_message_311b5fdfdb847340da0dd2e3ca961986</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-14 07:07:25</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message>
+</record_update>

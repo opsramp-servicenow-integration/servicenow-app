@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="Incident" source="com.snc.incident">cbc471bedb0313009c019806b996197a</dependency>
+        <min_version>1.0.0</min_version>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-11-12 06:53:35</sys_created_on>
+        <sys_id>00b4bbd4dbb1eb409c019806b99619cb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-11-12 06:53:35</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

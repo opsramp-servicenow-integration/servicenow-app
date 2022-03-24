@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>10</order>
+        <role display_value="x_opra_opsramp_int.admin" name="x_opra_opsramp_int.admin">0c6da478db11eb009c019806b99619d7</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-10-19 09:09:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c6ade878db11eb009c019806b99619ba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>0c6da478db11eb009c019806b99619d7</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>sys_embedded_help_role_c6ade878db11eb009c019806b99619ba</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-10-19 09:09:33</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

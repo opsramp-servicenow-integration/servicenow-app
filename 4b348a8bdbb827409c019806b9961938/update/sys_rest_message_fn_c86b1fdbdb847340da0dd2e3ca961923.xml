@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn">
+    <sys_rest_message_fn action="INSERT_OR_UPDATE">
+        <authentication_type>inherit_from_parent</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user>admin</basic_auth_user>
+        <content>{&#13;
+	"dnsName": "${dsnNameToken}",&#13;
+	"hostName": "${hostNameToken}",&#13;
+	"resourceType": "${resourceTypeToken}",&#13;
+	"os": "${osToken}",&#13;
+	"serialNumber": "${serialNumberToken}",&#13;
+	"make": "${makeToken}",&#13;
+	"model": "${modelToken}",&#13;
+	"resourceNetworkInterface": [{&#13;
+		"macAddress": "${macAddressToken}",&#13;
+		"ipAddress": "${ipAddressToken}"&#13;
+	}]&#13;
+}</content>
+        <function_name>Create CI</function_name>
+        <http_method>post</http_method>
+        <lock>false</lock>
+        <oauth2_profile/>
+        <protocol_name/>
+        <qualified_name>OpsRamp CI REST [ Create CI ]</qualified_name>
+        <rest_endpoint>https://integration.api.try.opsramp.com/api/v2/tenants/${tenantId}/resources</rest_endpoint>
+        <rest_message display_value="OpsRamp CI REST">311b5fdfdb847340da0dd2e3ca961986</rest_message>
+        <sys_class_name>sys_rest_message_fn</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-03-13 09:08:22</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c86b1fdbdb847340da0dd2e3ca961923</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Create CI</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>sys_rest_message_fn_c86b1fdbdb847340da0dd2e3ca961923</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-03-19 17:06:43</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message_fn>
+</record_update>
