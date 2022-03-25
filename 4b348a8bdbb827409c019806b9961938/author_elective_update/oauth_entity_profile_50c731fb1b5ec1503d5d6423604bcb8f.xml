@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile">
+    <oauth_entity_profile action="DELETE">
+        <default>true</default>
+        <grant_type>authorization_code</grant_type>
+        <jwt_provider/>
+        <name>GitHub default_profile</name>
+        <oauth_entity display_value="GitHub">4cb6313f1b5ec1503d5d6423604bcb43</oauth_entity>
+        <sys_class_name>oauth_entity_profile</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-03-24 16:24:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>50c731fb1b5ec1503d5d6423604bcb8f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GitHub default_profile</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>oauth_entity_profile_50c731fb1b5ec1503d5d6423604bcb8f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-03-24 16:24:46</sys_updated_on>
+    </oauth_entity_profile>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</application>
+        <file_path/>
+        <instance_id>fe0f6dfedb87d744b2e05d00cf96193b</instance_id>
+        <instance_name>ven02577</instance_name>
+        <name>oauth_entity_profile_50c731fb1b5ec1503d5d6423604bcb8f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile"><oauth_entity_profile action="INSERT_OR_UPDATE"><default>true</default><grant_type>authorization_code</grant_type><jwt_provider/><name>GitHub default_profile</name><oauth_entity display_value="GitHub">4cb6313f1b5ec1503d5d6423604bcb43</oauth_entity><sys_class_name>oauth_entity_profile</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2022-03-24 16:24:46</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>50c731fb1b5ec1503d5d6423604bcb8f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>GitHub default_profile</sys_name><sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope><sys_update_name>oauth_entity_profile_50c731fb1b5ec1503d5d6423604bcb8f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2022-03-24 16:24:46</sys_updated_on></oauth_entity_profile></record_update>]]></payload>
+        <payload_hash>-1688240299</payload_hash>
+        <record_name>GitHub default_profile</record_name>
+        <reverted_from/>
+        <source>14331a1fdb920010da0dd2e3ca961908</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-03-24 16:24:46</sys_created_on>
+        <sys_id>98c731fb1b5ec1503d5d6423604bcb91</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17fbcbeabc50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-03-24 16:24:46</sys_updated_on>
+        <type>OAuth Entity Profile</type>
+        <update_guid>90c731fb715ec150c7844222d6293a91</update_guid>
+        <update_guid_history>90c731fb715ec150c7844222d6293a91:-1688240299</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Record deleted 2022-03-24 09:40:29">125b71b31b9ec1503d5d6423604bcb40</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-03-24 16:40:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="oauth_entity_profile">oauth_entity_profile</sys_db_object>
+        <sys_id>08b211ebbf884b768b12926d17aacfb1</sys_id>
+        <sys_metadata>50c731fb1b5ec1503d5d6423604bcb8f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GitHub default_profile</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_scope_delete display_value="">830831502ffe43a2a71df09dd3ab8d59</sys_scope_delete>
+        <sys_update_name>oauth_entity_profile_50c731fb1b5ec1503d5d6423604bcb8f</sys_update_name>
+        <sys_update_version display_value="oauth_entity_profile_50c731fb1b5ec1503d5d6423604bcb8f">98c731fb1b5ec1503d5d6423604bcb91</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-03-24 16:40:29</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

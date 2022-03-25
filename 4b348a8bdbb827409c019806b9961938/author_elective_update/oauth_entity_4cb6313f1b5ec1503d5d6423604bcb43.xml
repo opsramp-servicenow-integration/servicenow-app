@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="DELETE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>0</auth_code_lifespan>
+        <auth_url>https://api.github.com/authorizations</auth_url>
+        <certificate_url/>
+        <client_id>6a3538a6703f404a2ebb</client_id>
+        <client_secret>﷞﷟﷒729bef5d1ba7a010da0fb8cc1d4bcbe0﷬﷔1﷬﷭6Q1uGoRTBVqdi-Xd-UuY7w==jZPRVK2R9mdLZh1c1dzx4zfK24KSjCF_WzZjnszc293nPt5VsEzRnZz9hplnhzbc4toRe04vlKM=﷮﷯</client_secret>
+        <client_uuid>c8b6313f1b5ec1503d5d6423604bcb43</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments/>
+        <default_grant_type>authorization_code</default_grant_type>
+        <id_token_lifespan>0</id_token_lifespan>
+        <logo_url/>
+        <message_signature_lifespan>0</message_signature_lifespan>
+        <name>GitHub</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url>https://ven02577.service-now.com/oauth_redirect.do</redirect_url>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <refresh_token_url/>
+        <restricted_binding>false</restricted_binding>
+        <revoke_token_url/>
+        <salt>0</salt>
+        <send_client_credentials_as>basic_authorization_header</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-03-24 16:24:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4cb6313f1b5ec1503d5d6423604bcb43</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>GitHub</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_update_name>oauth_entity_4cb6313f1b5ec1503d5d6423604bcb43</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-03-24 16:29:58</sys_updated_on>
+        <token_url>https://github.com/login/oauth/access_token</token_url>
+        <type>oauth_provider</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</application>
+        <file_path/>
+        <instance_id>fe0f6dfedb87d744b2e05d00cf96193b</instance_id>
+        <instance_name>ven02577</instance_name>
+        <name>oauth_entity_4cb6313f1b5ec1503d5d6423604bcb43</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity"><oauth_entity action="INSERT_OR_UPDATE"><access>public</access><access_token_lifespan>1800</access_token_lifespan><active>true</active><auth_code_lifespan>0</auth_code_lifespan><auth_url>https://api.github.com/authorizations</auth_url><certificate_url/><client_id>6a3538a6703f404a2ebb</client_id><client_secret>﷞﷟﷒729bef5d1ba7a010da0fb8cc1d4bcbe0﷬﷔1﷬﷭6Q1uGoRTBVqdi-Xd-UuY7w==jZPRVK2R9mdLZh1c1dzx4zfK24KSjCF_WzZjnszc293nPt5VsEzRnZz9hplnhzbc4toRe04vlKM=﷮﷯</client_secret><client_uuid>c8b6313f1b5ec1503d5d6423604bcb43</client_uuid><code_challenge_method>S256</code_challenge_method><comments/><default_grant_type>authorization_code</default_grant_type><id_token_lifespan>0</id_token_lifespan><logo_url/><message_signature_lifespan>0</message_signature_lifespan><name>GitHub</name><oauth_api_script/><protocol_name/><public_client>false</public_client><redirect_url>https://ven02577.service-now.com/oauth_redirect.do</redirect_url><refresh_token_lifespan>8640000</refresh_token_lifespan><refresh_token_url/><restricted_binding>false</restricted_binding><revoke_token_url/><salt>0</salt><send_client_credentials_as>basic_authorization_header</send_client_credentials_as><skip_authorize>false</skip_authorize><sys_class_name>oauth_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2022-03-24 16:24:46</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>4cb6313f1b5ec1503d5d6423604bcb43</sys_id><sys_mod_count>1</sys_mod_count><sys_name>GitHub</sys_name><sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope><sys_update_name>oauth_entity_4cb6313f1b5ec1503d5d6423604bcb43</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2022-03-24 16:29:58</sys_updated_on><token_url>https://github.com/login/oauth/access_token</token_url><type>oauth_provider</type><use_mutual_auth>false</use_mutual_auth><user/></oauth_entity></record_update>]]></payload>
+        <payload_hash>1293146797</payload_hash>
+        <record_name>GitHub</record_name>
+        <reverted_from/>
+        <source>14331a1fdb920010da0dd2e3ca961908</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-03-24 16:29:58</sys_created_on>
+        <sys_id>10f8fdfb1b5ec1503d5d6423604bcbb9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17fbcc36e030000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-03-24 16:29:58</sys_updated_on>
+        <type>Application Registries</type>
+        <update_guid>d4f8fdfb905ec150d4dbd50edbae35b8</update_guid>
+        <update_guid_history>d4f8fdfb905ec150d4dbd50edbae35b8:1293146797,d8c7f17f235ec15065ee647af47a5e8d:-90896859</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Record deleted 2022-03-24 09:40:29">125b71b31b9ec1503d5d6423604bcb45</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-03-24 16:40:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="oauth_entity">oauth_entity</sys_db_object>
+        <sys_id>44a47a95924a4f0da2a2e796d5c7cfe9</sys_id>
+        <sys_metadata>4cb6313f1b5ec1503d5d6423604bcb43</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GitHub</sys_name>
+        <sys_package display_value="OpsRamp Integration" source="x_opra_opsramp_int">4b348a8bdbb827409c019806b9961938</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="OpsRamp Integration">4b348a8bdbb827409c019806b9961938</sys_scope>
+        <sys_scope_delete display_value="">830831502ffe43a2a71df09dd3ab8d59</sys_scope_delete>
+        <sys_update_name>oauth_entity_4cb6313f1b5ec1503d5d6423604bcb43</sys_update_name>
+        <sys_update_version display_value="oauth_entity_4cb6313f1b5ec1503d5d6423604bcb43">10f8fdfb1b5ec1503d5d6423604bcbb9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-03-24 16:40:29</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

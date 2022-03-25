@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="OpsRamp Incident" max_length="40" name="x_opra_opsramp_int_opsramp_incident" sizeclass="0" type="collection">
+        <element label="Caller Id" mandatory="true" max_length="40" name="caller_id" type="string"/>
+        <element label="Description" mandatory="true" max_length="4000" name="description" type="string"/>
+        <element label="Impact" mandatory="true" max_length="64" name="impact" type="string"/>
+        <element label="OpsRamp Client Id" max_length="64" name="opsramp_client_id" type="string"/>
+        <element label="OpsRamp Incident Id" mandatory="true" max_length="40" name="opsramp_incident_id" type="string"/>
+        <element label="Status" mandatory="true" max_length="64" name="status" type="string"/>
+        <element label="subject" mandatory="true" max_length="160" name="subject" type="string"/>
+        <element label="Urgency" mandatory="true" max_length="64" name="urgency" type="string"/>
+        <element label="Work Notes" max_length="4000" name="work_notes" type="string"/>
+    </element>
+</database>

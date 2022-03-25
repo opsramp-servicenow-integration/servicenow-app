@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="OpsRamp CI" max_length="40" name="x_opra_opsramp_int_opsramp_ci" sizeclass="0" type="collection">
+        <element label="DNS Name" max_length="255" name="dns_name" type="string_full_utf8"/>
+        <element label="Host Name" mandatory="true" max_length="255" name="host_name" type="string_full_utf8"/>
+        <element label="IP Address" max_length="255" name="ip_address" type="string_full_utf8"/>
+        <element label="MAC Address" max_length="255" name="mac_address" type="string_full_utf8"/>
+        <element label="Make" max_length="255" name="make" type="string_full_utf8"/>
+        <element label="Model" max_length="255" name="model" type="string_full_utf8"/>
+        <element label="OpsRamp Resource Id" mandatory="true" max_length="64" name="opsramp_resource_id" type="string_full_utf8"/>
+        <element label="OpsRamp Tenant Id" max_length="255" name="opsramp_tenant_id" type="string_full_utf8"/>
+        <element label="Resource Type" mandatory="true" max_length="255" name="resource_type" type="string_full_utf8"/>
+        <element label="System UID" max_length="255" name="system_uid" type="string_full_utf8"/>
+    </element>
+</database>
